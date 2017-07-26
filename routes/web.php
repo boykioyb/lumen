@@ -17,3 +17,4 @@ $app->get('/', function () use ($app) {
 $app->get('/login', function () use ($app) {
     return view('login');
 });
+$app->post('/login',['as'=>'post.login','uses'=> 'UserController@postLogin']);

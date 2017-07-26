@@ -29,13 +29,12 @@ class UserController extends Controller
             }
             else{
                 $msg = "Wrong password";
-                dd($msg);
-              return view('login',compact($msg));
+              return view('login',compact('msg'));
             }
      
         }else{
-            $msg = "Wrong username";
-              return view('login',compact($msg));
+            $mst = "Wrong username";
+              return view('login',compact('mst'));
      
         }
     }

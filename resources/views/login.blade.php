@@ -15,15 +15,18 @@
 <body>
 	<div class="container">
 		<div class="card card-container">
-		<form action="{{ route('post.login') }}" method="POST">
-			<img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" />
-			<!-- <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /> -->
-			<p id="profile-name" class="profile-name-card"></p>
-			 	@if(isset($msg))
-			 	<span class="text-danger">{{$msg}}</span>
-			 	@endif
+			<form action="{{ route('post.login') }}" method="POST">
+				<img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" />
+				<!-- <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /> -->
+				<p id="profile-name" class="profile-name-card"></p>
 				<input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required autofocus>
+				<?php if(isset($mst)) { ?>
+					<span class="text-danger"><?= $mst ?></span>
+				<?php } ?>
 				<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+				<?php if(isset($msg)) { ?>
+					<span class="text-danger"><?= $msg ?></span>
+				<?php } ?>
 				<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
 			</form><!-- /form -->
 		</div><!-- /card-container -->

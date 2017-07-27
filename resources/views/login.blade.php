@@ -1,38 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="author" content="Tran Quang Hoa">
-	<meta name="description" content="Login">
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="{{ url('Login/style.css') }}">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Login</title>
+
+    <link href="Static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Static/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="Static/css/animate.css" rel="stylesheet">
+    <link href="Static/css/style.css" rel="stylesheet">
+
 </head>
-<body>
-	<div class="container">
-		<div class="card card-container">
-			<form action="{{ route('post.login') }}" method="POST">
-				<img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" />
-				<!-- <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /> -->
-				<p id="profile-name" class="profile-name-card"></p>
-				<input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required autofocus>
-				<?php if(isset($mst)) { ?>
-					<span class="text-danger"><?= $mst ?></span>
-				<?php } ?>
-				<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-				<?php if(isset($msg)) { ?>
-					<span class="text-danger"><?= $msg ?></span>
-				<?php } ?>
-				<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-			</form><!-- /form -->
-		</div><!-- /card-container -->
-	</div><!-- /container -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="{{ url('Login/loginls.js') }}"></script>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name">IN+</h1>
+
+            </div>
+            <h3>Welcome to IN+</h3>
+            <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+                <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
+            </p>
+            <p>Login in. To see it in action.</p>
+            <form class="m-t" role="form" action="{{route('post.login')}}" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" name="username" required="">
+                    @if(isset($mst))
+                    	<span class="text-danger">{{$mst}}</span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" name="password" required="">
+                	@if(isset($msg))
+                    	<span class="text-danger">{{$msg}}</span>
+                    @endif
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+
+                <a href="#"><small>Forgot password?</small></a>
+                <p class="text-muted text-center"><small>Do not have an account?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>
+            </form>
+            <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="Static/js/jquery-2.1.1.js"></script>
+    <script src="Static/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
